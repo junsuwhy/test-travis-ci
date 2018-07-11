@@ -35,7 +35,7 @@ before_install:
 
 install:
   - mysql -e 'create database neticrmci CHARACTER SET utf8 COLLATE utf8_general_ci'
-  - mysql -uneticrmci -e 'SHOW VARIABLES LIKE "innodb_file_format_max"'
+  - mysql -e 'SHOW VARIABLES LIKE "innodb_file_format_max"'
 
 before_script:
 
