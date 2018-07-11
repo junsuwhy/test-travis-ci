@@ -27,11 +27,8 @@ addons:
 before_install:
   - git submodule init
   - git submodule update
-  - |
-    echo -e "[mysqld]
-    innodb_large_prefix = true
-    innodb_file_format_max = barracuda" | sudo tee /etc/mysql/conf.d/travis.cnf
-  - sudo /etc/init.d/mysql restart
+  - mysql -e "SET GLOBAL innodb_file_format=Barracuda;"
+  - mysql -e "SET GLOBAL innodb_large_prefix=1;"
 
 install:
   - mysql -e 'create database neticrmci CHARACTER SET utf8 COLLATE utf8_general_ci'
