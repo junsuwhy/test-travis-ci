@@ -32,6 +32,7 @@ before_install:
   - echo -e "[mysqld]\ninnodb_large_prefix = true\ninnodb_file_format = Barracuda\ninnodb_file_format_max = barracuda\ninnodb_file_per_table  = 1" | sudo tee -a /etc/mysql/my.cnf
   - sudo service mysql restart
   - cat /etc/mysql/my.cnf
+  - cat /var/log/mysql/error.log
 
 install:
   - mysql -e 'create database neticrmci CHARACTER SET utf8 COLLATE utf8_general_ci'
